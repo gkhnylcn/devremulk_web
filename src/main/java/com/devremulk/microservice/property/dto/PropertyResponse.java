@@ -1,6 +1,6 @@
 package com.devremulk.microservice.property.dto;
 
-import com.devremulk.microservice.property.Property;
+import com.devremulk.microservice.property.entity.Property;
 
 public record PropertyResponse(
         Long id,

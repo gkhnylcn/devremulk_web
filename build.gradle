@@ -9,13 +9,15 @@ version = '0.0.1-SNAPSHOT'
 
 def querydslVersion = '5.1.0'
 
+def javaVersion = 21
+
 repositories {
     mavenCentral()
 }
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(javaVersion)
     }
 }
 
