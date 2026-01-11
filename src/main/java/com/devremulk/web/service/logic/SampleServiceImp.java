@@ -1,11 +1,11 @@
 package com.devremulk.web.service.logic;
 
 import com.devremulk.web.dto.SampleDto;
-import com.devremulk.web.entity.QSampleEntity;
 import com.devremulk.web.entity.SampleEntity;
 import com.devremulk.web.exception.ResourceNotFoundException;
 import com.devremulk.web.repository.SampleRepository;
 import com.devremulk.web.service.SampleService;
+import com.querydsl.core.types.dsl.PathBuilder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -66,7 +66,7 @@ public class SampleServiceImp implements SampleService {
     @Override
     @Transactional(readOnly = true)
     public List<SampleDto> list() {
-        QSampleEntity sample = QSampleEntity.sampleEntity;
+        PathBuilder<SampleEntity> sample = new PathBuilder<>(SampleEntity.class, "sample");
         return queryFactory.selectFrom(sample)
                 .fetch()
                 .stream()
