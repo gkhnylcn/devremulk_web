@@ -7,6 +7,15 @@ plugins {
 group = 'com.devremulk'
 version = '0.0.1-SNAPSHOT'
 
+ext {
+    springBootVersion = '4.0.1'
+    jakartaPersistenceVersion = '3.1.0'
+    jakartaAnnotationVersion = '3.0.0'
+    lombokVersion = '1.18.34'
+    h2Version = '2.2.224'
+    springSecurityTestVersion = '6.4.0'
+}
+
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(25)
@@ -25,23 +34,23 @@ dependencyManagement {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-validation'
-    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-validation:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
     implementation 'com.querydsl:querydsl-jpa:5.1.0:jakarta'
     implementation 'net.logstash.logback:logstash-logback-encoder:7.4'
 
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
     annotationProcessor 'com.querydsl:querydsl-apt:5.1.0:jakarta'
-    annotationProcessor 'jakarta.persistence:jakarta.persistence-api'
-    annotationProcessor 'jakarta.annotation:jakarta.annotation-api'
+    annotationProcessor "jakarta.persistence:jakarta.persistence-api:${jakartaPersistenceVersion}"
+    annotationProcessor "jakarta.annotation:jakarta.annotation-api:${jakartaAnnotationVersion}"
 
-    runtimeOnly 'com.h2database:h2'
+    runtimeOnly "com.h2database:h2:${h2Version}"
 
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    testImplementation "org.springframework.security:spring-security-test:${springSecurityTestVersion}"
 }
 
 tasks.named('test') {
