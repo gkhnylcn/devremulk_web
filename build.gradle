@@ -12,6 +12,8 @@ ext {
     jakartaPersistenceVersion = '3.1.0'
     jakartaAnnotationVersion = '3.0.0'
     lombokVersion = '1.18.34'
+    h2Version = '2.2.224'
+    springSecurityTestVersion = '6.4.0'
 }
 
 java {
