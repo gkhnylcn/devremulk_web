@@ -56,11 +56,3 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
-
-sourceSets {
-    main {
-        java {
-            srcDirs += ["$buildDir/generated/sources/annotationProcessor/java/main"]
-        }
-    }
-}
