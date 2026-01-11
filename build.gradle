@@ -18,7 +18,7 @@ ext {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(25)
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 
@@ -43,6 +43,7 @@ dependencies {
 
     compileOnly "org.projectlombok:lombok:${lombokVersion}"
     annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor 'com.querydsl:querydsl-apt:5.1.0:jakarta'
     annotationProcessor "jakarta.persistence:jakarta.persistence-api:${jakartaPersistenceVersion}"
     annotationProcessor "jakarta.annotation:jakarta.annotation-api:${jakartaAnnotationVersion}"
 
